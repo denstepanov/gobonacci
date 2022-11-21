@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package shared.proto;
+
+option go_package = "shared/proto";
+
+message CountDto {
+    bytes prev = 1;
+    bytes curr = 2;
+}
+
+service CountHandler {
+    rpc CountNext(CountDto) returns (CountDto);
+}
