@@ -19,7 +19,7 @@ func main() {
 
 	r := chi.NewRouter()
 
-	r.Get("/api/init-counts/{num:[1-9]+}", handlers.InitCount)
+	r.Get("/api/init-counts/{num}", handlers.InitCount)
 
 	err := http.ListenAndServe(fmt.Sprintf("%s:%d", config.App.Host, config.App.Port), r)
 	if err != nil {

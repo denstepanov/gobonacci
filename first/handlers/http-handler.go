@@ -12,7 +12,10 @@ import (
 )
 
 func InitCount(w http.ResponseWriter, r *http.Request) {
-	num, _ := strconv.Atoi(chi.URLParam(r, "num"))
+	num, err := strconv.Atoi(chi.URLParam(r, "num"))
+	if err != nil {
+		panic("Param should be a number!")
+	}
 
 	if num > 0 {
 		for i := 0; i < num; i++ {
